@@ -1,4 +1,6 @@
 let winner='';
+const area = document.getElementById('area');
+let count=0;
 
 const contentWrapper=document.getElementById('content');
 const modalRes=document.getElementById('modal-res-wrapper');
@@ -70,30 +72,7 @@ const prepare= () =>{
     //contentWrapper.innerHTML=Победили ${res} !;
     modalRes.style.display = 'block';
 };
-
-//проверка на ничью 
-const checkDraw = () =>{
-    contentWrapper.innerHTML="ничья";
-    modalRes.style.display = 'block';
-};
-
-let move=0;
-    area.addEventListener('click', e => {
-        if ((pl>0) && (e.target.className === 'square')){
-            move % 2 === 0 ? e.target.innerHTML = 'X' : e.target.innerHTML = 'O';
-            move++; 
-            count++;
-            if (count === 9){
-                checkDraw();
-            }
-            checkWinner();
-        } else{
-            alert('Игроки не выбрали символы!');
-        }
-    
-    });
-
-    /////////////////
+/////////////////
 //закрытие окна
 const closeModal =()=>{
     modalRes.style.display='none';
@@ -134,6 +113,28 @@ function btnFuncO2(){
 };
 
 
-const area = document.getElementById('area');
 
-let count=0;
+
+//проверка на ничью 
+const checkDraw = () =>{
+    contentWrapper.innerHTML="ничья";
+    modalRes.style.display = 'block';
+};
+
+let move=0;
+    area.addEventListener('click', e => {
+        if ((pl>0) && (e.target.className === 'square')){
+            move % 2 === 0 ? e.target.innerHTML = 'X' : e.target.innerHTML = 'O';
+            move++; 
+            count++;
+            if (count === 9){
+                checkDraw();
+            }
+            checkWinner();
+        } else{
+            alert('Игроки не выбрали символы!');
+        }
+    
+    });
+
+    
