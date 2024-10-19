@@ -92,3 +92,48 @@ let move=0;
         }
     
     });
+
+    /////////////////
+//закрытие окна
+const closeModal =()=>{
+    modalRes.style.display='none';
+    location.reload();
+};
+
+overlay.addEventListener('click', closeModal);
+btnClose.addEventListener('click', closeModal);
+
+const btnO1 = document.getElementById('btnO1');
+const btnX1 = document.getElementById('btnX1');
+const btnX2 = document.getElementById('btnX2');
+const btnO2 = document.getElementById('btnO2');
+
+let pl=0; //если нажать на кнопку х за 1 игрока будет = 1, иначе 2
+function btnFuncX1(){
+    btnO1.disabled = true; 
+    btnX2.disabled = true; 
+    pl = 1;
+};
+
+function btnFuncO1(){
+    btnX1.disabled = true; 
+    btnO2.disabled = true; 
+    pl = 2;
+};
+
+function btnFuncX2(){
+    btnX1.disabled = true; 
+    btnO2.disabled = true; 
+    pl = 2;
+};
+
+function btnFuncO2(){
+    btnO1.disabled = true; 
+    btnX2.disabled = true; 
+    pl = 1;
+};
+
+
+const area = document.getElementById('area');
+
+let count=0;
